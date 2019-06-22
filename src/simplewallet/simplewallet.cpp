@@ -1,36 +1,10 @@
-// Copyright (c) 2019, Ryo Currency Project
+// Copyright (c) 2018, Ryo Currency Project
 // Portions copyright (c) 2014-2018, The Monero Project
 //
 // Portions of this file are available under BSD-3 license. Please see ORIGINAL-LICENSE for details
 // All rights reserved.
 //
-// Authors and copyright holders give permission for following:
-//
-// 1. Redistribution and use in source and binary forms WITHOUT modification.
-//
-// 2. Modification of the source form for your own personal use.
-//
-// As long as the following conditions are met:
-//
-// 3. You must not distribute modified copies of the work to third parties. This includes
-//    posting the work online, or hosting copies of the modified work for download.
-//
-// 4. Any derivative version of this work is also covered by this license, including point 8.
-//
-// 5. Neither the name of the copyright holders nor the names of the authors may be
-//    used to endorse or promote products derived from this software without specific
-//    prior written permission.
-//
-// 6. You agree that this licence is governed by and shall be construed in accordance
-//    with the laws of England and Wales.
-//
-// 7. You agree to submit all disputes arising out of or in connection with this licence
-//    to the exclusive jurisdiction of the Courts of England and Wales.
-//
-// Authors and copyright holders agree that:
-//
-// 8. This licence expires and the work covered by it is released into the
-//    public domain on 1st of February 2020
+// Ryo changes to this code are in public domain. Please note, other licences may apply to the file.
 //
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -293,8 +267,10 @@ const struct
 	const char *name;
 	tools::wallet2::RefreshType refresh_type;
 } refresh_type_names[] =
-{
+	{
 		{"full", tools::wallet2::RefreshFull},
+		{"optimize-coinbase", tools::wallet2::RefreshOptimizeCoinbase},
+		{"optimized-coinbase", tools::wallet2::RefreshOptimizeCoinbase},
 		{"no-coinbase", tools::wallet2::RefreshNoCoinbase},
 		{"default", tools::wallet2::RefreshDefault},
 };
@@ -482,7 +458,7 @@ void handle_transfer_exception(const std::exception_ptr &e, bool trusted_daemon)
 	}
 
 	if(warn_of_possible_attack)
-		fail_msg_writer() << tr("There was an error, which could mean the node may be trying to get you to retry creating a transaction, and zero in on which outputs you own. Or it could be a bona fide error. It may be prudent to disconnect from this node, and not try to send a transaction immediately. Alternatively, connect to another node so the original node cannot correlate information.");
+		fail_msg_writer() << tr("There was an error, which could mean the node may be trying to get you to retry creating a transaction, and zero in on which outputs you own. Or it could be a bona fide error. It may be prudent to disconnect from this node, and not try to send a tranasction immediately. Alternatively, connect to another node so the original node cannot correlate information.");
 }
 
 bool check_file_overwrite(const std::string &filename)
@@ -2153,7 +2129,7 @@ simple_wallet::simple_wallet()
 								"refresh-type <full|optimize-coinbase|no-coinbase|default>\n "
 								"  Set the wallet's refresh behaviour.\n "
 								"priority [0|1|2|3|4]\n "
-								"  Set the fee to default/unimportant/normal/elevated/priority.\n "
+								"  Set the fee too default/unimportant/normal/elevated/priority.\n "
 								"confirm-missing-payment-id <1|0>\n "
 								"ask-password <1|0>\n "
 								"unit <ryo|milliryo|microryo|nanoryo>\n "
