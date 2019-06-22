@@ -253,13 +253,13 @@ struct common_config
 
 	///////////////// Dev fund constants
 	// 2 out of 3 multisig address held by fireice, mosu, and psychocrypt
-	static constexpr const char* DEV_FUND_ADDRESS = "cashCdYTudG44DDXfmWFxv9mFBbZ4rmaB2HcB5uCWQRXfdnjSBf8CDT3d8KtR4vAos8U3YrJKqu3CGacg6iQSqDR1PTekywzyt";
+	static constexpr const char* DEV_FUND_ADDRESS = "ShaDowSiWnzeiZ8ciSF87jUkJ6PPGyhEDYJ6vMNf8rNf6Kv6r6UiLnBLF4zaPawZHSWRKBqpRV3wu1V6Rn4PzSq5BFBYrMmp3UQFsv";
 	// 34d6b7155d99da44c3a73424c60ecb0da53d228ed8da026df00ed275ea54e803
-	static constexpr const char* DEV_FUND_VIEWKEY = "bffa803bb4061d93a83a3613ff478c5b5e5cb0b0337a735e1a1304ca9fab1807";
+	static constexpr const char* DEV_FUND_VIEWKEY = "24e0730b3598a81bf739afe2ca6ff4b8bff802e557c65386b8d03d3f79f3fd09";
 	// Exact number of coins burned in the premine burn, in atomic units
 	static constexpr uint64_t PREMINE_BURN_AMOUNT = 1000000000;
 	// Omb donation address
-	static constexpr const char* RYO_DONATION_ADDR = "cashCdYTudG44DDXfmWFxv9mFBbZ4rmaB2HcB5uCWQRXfdnjSBf8CDT3d8KtR4vAos8U3YrJKqu3CGacg6iQSqDR1PTekywzyt";
+	static constexpr const char* RYO_DONATION_ADDR = "ShaDowSiWnzeiZ8ciSF87jUkJ6PPGyhEDYJ6vMNf8rNf6Kv6r6UiLnBLF4zaPawZHSWRKBqpRV3wu1V6Rn4PzSq5BFBYrMmp3UQFsv";
 };
 
 template <network_type type>
