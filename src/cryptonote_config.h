@@ -254,8 +254,8 @@ struct common_config
 	///////////////// Dev fund constants
 	// 2 out of 3 multisig address held by fireice, mosu, and psychocrypt
 	static constexpr const char* DEV_FUND_ADDRESS = "ShaDowSiWnzeiZ8ciSF87jUkJ6PPGyhEDYJ6vMNf8rNf6Kv6r6UiLnBLF4zaPawZHSWRKBqpRV3wu1V6Rn4PzSq5BFBYrMmp3UQFsv";
-	// 34d6b7155d99da44c3a73424c60ecb0da53d228ed8da026df00ed275ea54e803
-	static constexpr const char* DEV_FUND_VIEWKEY = "d321519d7805a37da4f5945d9554e6e2547a20483e3ed7c47e7c3582f6b0930d";
+	// 
+	static constexpr const char* DEV_FUND_VIEWKEY = "";
 	// Exact number of coins burned in the premine burn, in atomic units
 	static constexpr uint64_t PREMINE_BURN_AMOUNT = 1000000000;
 	// Omb donation address
