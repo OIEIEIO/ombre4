@@ -312,14 +312,6 @@ bool Blockchain::init(BlockchainDB *db, const network_type nettype, bool offline
 		return false;
 	}
 
-	m_dev_spend_key = dev_addr.address.m_spend_public_key;
-	crypto::public_key vk;
-	if(!secret_key_to_public_key(m_dev_view_key, vk) || vk != dev_addr.address.m_view_public_key)
-	{
-		LOG_ERROR("Dev private view key failed verification!");
-		return false;
-	}
-
 	if(db == nullptr)
 	{
 		LOG_ERROR("Attempted to init Blockchain with null DB");
