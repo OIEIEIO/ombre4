@@ -50,7 +50,7 @@ set(address_validator_private_headers
   address_validator.h
   writer.h)
 
-ryo_private_headers(address_validator
+omb_private_headers(address_validator
   ${address_validator_private_headers})
 monero_add_executable(address_validator
   ${address_validator_sources}
