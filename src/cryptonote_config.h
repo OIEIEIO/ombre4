@@ -150,55 +150,6 @@ enum network_type : uint8_t
 	UNDEFINED = 255
 };
 
-enum hard_fork_feature
-{
-	FORK_POW_CN_HEAVY,
-	FORK_POW_CN_GPU,
-	FORK_V2_DIFFICULTY,
-	FORK_V3_DIFFICULTY,
-	FORK_V4_DIFFICULTY,
-	FORK_FIXED_FEE,
-	FORK_NEED_V3_TXES,
-	FORK_RINGSIZE_INC,
-	FORK_RINGSIZE_INC_REQ,
-	FORK_BULLETPROOFS,
-	FORK_BULLETPROOFS_REQ,
-	FORK_STRICT_TX_SEMANTICS,
-	FORK_DEV_FUND,
-	FORK_FEE_V2,
-	FORK_UNIFORM_IDS,
-	FORK_UNIFORM_IDS_REQ
-};
-
-struct hardfork_conf
-{
-	static constexpr uint8_t FORK_ID_DISABLED = 0xff;
-
-	hard_fork_feature ft;
-	uint8_t mainnet;
-	uint8_t testnet;
-	uint8_t stagenet;
-};
-
-static constexpr hardfork_conf FORK_CONFIG[] = {
-	{FORK_POW_CN_HEAVY, 3, 3, 1},
-	{FORK_POW_CN_GPU, 6, 9, 1},
-	{FORK_V2_DIFFICULTY, 2, 2, 1},
-	{FORK_V3_DIFFICULTY, 4, 4, 1},
-	{FORK_V4_DIFFICULTY, 6, 9, 1},
-	{FORK_FIXED_FEE, 4, 4, 1},
-	{FORK_NEED_V3_TXES, 4, 4, 1},
-	{FORK_STRICT_TX_SEMANTICS, 5, 5, 1},
-	{FORK_DEV_FUND, 5, 5, 1},
-	{FORK_FEE_V2, 5, 6, 1},
-	{FORK_RINGSIZE_INC, 6, 8, 1},
-	{FORK_RINGSIZE_INC_REQ, 7, 9, 1},
-	{FORK_BULLETPROOFS, 6, 8, 1},
-	{FORK_BULLETPROOFS_REQ, 7, 9, 1},
-	{FORK_UNIFORM_IDS, 6, 7, 1},
-	{FORK_UNIFORM_IDS_REQ, 7, 8, 1}
-};
-
 // COIN - number of smallest units in one coin
 inline constexpr uint64_t MK_COINS(uint64_t coins) { return coins * 1000000000ull; }  // pow(10, 9)
 
@@ -215,30 +166,30 @@ struct common_config
 	static constexpr uint64_t DIFFICULTY_TARGET = 60; // 1 minutes
 
 	/////////////// V1 difficulty constants
-	static constexpr uint64_t DIFFICULTY_WINDOW_V1 = 720; // blocks
+	static constexpr uint64_t DIFFICULTY_WINDOW_V1 = 93; // blocks
 	static constexpr uint64_t DIFFICULTY_LAG_V1 = 15;	 // !!!
 	static constexpr uint64_t DIFFICULTY_CUT_V1 = 60;	 // timestamps to cut after sorting
 	static constexpr uint64_t DIFFICULTY_BLOCKS_COUNT_V1 = DIFFICULTY_WINDOW_V1 + DIFFICULTY_LAG_V1;
 	static constexpr uint64_t BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V1 = 60;
 
 	/////////////// V2 difficulty constants
-	static constexpr uint64_t DIFFICULTY_WINDOW_V2 = 17;
-	static constexpr uint64_t DIFFICULTY_CUT_V2 = 6;
+	static constexpr uint64_t DIFFICULTY_WINDOW_V2 = 93;
+	static constexpr uint64_t DIFFICULTY_CUT_V2 = 60;
 	static constexpr uint64_t DIFFICULTY_BLOCKS_COUNT_V2 = DIFFICULTY_WINDOW_V2 + DIFFICULTY_CUT_V2 * 2;
-	static constexpr uint64_t BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V2 = 12;
+	static constexpr uint64_t BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V2 = 60;
 	static constexpr uint64_t BLOCK_FUTURE_TIME_LIMIT_V2 = 60 * 24;
 
 	/////////////// V3 difficulty constants
-	static constexpr uint64_t DIFFICULTY_WINDOW_V3 = 60;
+	static constexpr uint64_t DIFFICULTY_WINDOW_V3 = 93;
 	static constexpr uint64_t DIFFICULTY_BLOCKS_COUNT_V3 = DIFFICULTY_WINDOW_V3 + 1;
-	static constexpr uint64_t BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V3 = 11;
-	static constexpr uint64_t BLOCK_FUTURE_TIME_LIMIT_V3 = DIFFICULTY_TARGET * 3;
+	static constexpr uint64_t BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V3 = 60;
+	static constexpr uint64_t BLOCK_FUTURE_TIME_LIMIT_V3 = DIFFICULTY_TARGET * 24;
 
 	/////////////// V4 difficulty constants
-	static constexpr uint64_t DIFFICULTY_WINDOW_V4 = 45;
+	static constexpr uint64_t DIFFICULTY_WINDOW_V4 = 93;
 	static constexpr uint64_t DIFFICULTY_BLOCKS_COUNT_V4 = DIFFICULTY_WINDOW_V4 + 1;
 
-	static constexpr uint64_t CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE = 240 * 1024; // 240 kB
+	static constexpr uint64_t CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE = 300 * 1024; // 300 kB
 	static constexpr uint64_t BLOCK_SIZE_GROWTH_FAVORED_ZONE = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE * 4;
 	static constexpr uint64_t TRANSACTION_SIZE_LIMIT = 300 * 1024;			// 300 kB
 	static constexpr uint64_t BLOCK_SIZE_LIMIT_ABSOLUTE = 16 * 1024 * 1024; // 16 MB
