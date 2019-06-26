@@ -95,6 +95,7 @@ using epee::string_tools::pod_to_hex;
 
 DISABLE_VS_WARNINGS(4267)
 
+#define MERROR_VER(x) MCERROR("verify", x)
 
 // used to overestimate the block reward when estimating a per kB to use
 #define BLOCK_REWARD_OVERESTIMATE ((uint64_t)(16000000000))
@@ -109,12 +110,13 @@ static const struct
 	uint8_t threshold;
 	time_t time;
 } mainnet_hard_forks[] = {
-	{1, 1, 0, 1531762611},
-	{2, 2, 0, 1531762611},
-	{3, MAINNET_HARDFORK_V3_HEIGHT, 0, 1531762611},
-	{4, 4, 0, 1531762611},
-	{6, MAINNET_HARDFORK_V6_HEIGHT, 0, 1531762611},
-	{7, 6, 0, 1531762611}
+	{1, 1, 0, 1482806500},
+	{2, 21300, 0, 1497657600},
+	{3, MAINNET_HARDFORK_V3_HEIGHT, 0, 1522800000},
+	{4, 150000, 0, 1530967408},
+	{5, 161500, 0, 1533767730},
+	{6, MAINNET_HARDFORK_V6_HEIGHT, 0, 1550067000},
+	{7, 228870, 0, 1550095800}
 };
 
 static const uint64_t mainnet_hard_fork_version_1_till = (uint64_t)-1;
@@ -126,15 +128,15 @@ static const struct
 	uint8_t threshold;
 	time_t time;
 } testnet_hard_forks[] = {
-	{1, 1, 0, 1522597017},
-	{2, 2, 0, 1522597017},
-	{3, 3, 0, 1522597017}, // 
-	{4, 4, 0, 1529873000},
-	{5, 5, 0, 1522597017},
-	{6, 6, 0, 1522597017},
-	{7, 7, 0, 1522597017},
-	{8, 8, 0, 1522597017},
-	{9, 9, 0, 1522597017}
+	{1, 1, 0, 1482806500},
+	{2, 5150, 0, 1497181713},
+	{3, 103580, 0, 1522540800}, // April 01, 2018
+	{4, 123575, 0, 1529873000},
+	{5, 129750, 0, 1532782050},
+	{6, 130425, 0, 1532868450},
+	{7, 159180, 0, 1542300607},
+	{8, 162815, 0, 1543265893},
+	{9, 182750, 0, 1548096165}
 };
 static const uint64_t testnet_hard_fork_version_1_till = (uint64_t)-1;
 
@@ -145,9 +147,9 @@ static const struct
 	uint8_t threshold;
 	time_t time;
 } stagenet_hard_forks[] = {
-	{1, 1, 0, 1522597017},
-	{2, 2, 0, 1522597017},
-	{3, 3, 0, 1522597017} // 
+	{1, 1, 0, 1482806500},
+	{2, 5150, 0, 1497181713},
+	{3, 103580, 0, 1522540800} // April 01, 2018
 };
 
 //------------------------------------------------------------------
