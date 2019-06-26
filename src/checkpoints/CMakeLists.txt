@@ -56,9 +56,9 @@ set(checkpoints_headers)
 set(checkpoints_private_headers
   checkpoints.h)
 
-ryo_private_headers(checkpoints
+omb_private_headers(checkpoints
   ${checkpoints_private_headers})
-ryo_add_library(checkpoints
+omb_add_library(checkpoints
   ${checkpoints_sources}
   ${checkpoints_headers}
   ${checkpoints_private_headers})

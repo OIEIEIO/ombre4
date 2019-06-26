@@ -71,10 +71,10 @@ else()
   set(Blocks "")
 endif()
 
-ryo_private_headers(device
+omb_private_headers(device
   ${device_private_headers})
 
-ryo_add_library(device
+omb_add_library(device
   ${device_sources}
   ${device_headers}
   ${device_private_headers})

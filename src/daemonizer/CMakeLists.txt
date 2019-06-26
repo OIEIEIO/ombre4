@@ -74,9 +74,9 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
   add_definitions(-DDEBUG_TMPDIR_LOG=1)
 endif()
 
-ryo_private_headers(daemonizer
+omb_private_headers(daemonizer
   ${daemonizer_private_headers})
-ryo_add_library(daemonizer
+omb_add_library(daemonizer
   ${daemonizer_sources}
   ${daemonizer_headers}
   ${daemonizer_private_headers})

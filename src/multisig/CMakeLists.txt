@@ -50,10 +50,10 @@ set(multisig_headers)
 set(multisig_private_headers
   multisig.h)
 
-ryo_private_headers(multisig
+omb_private_headers(multisig
   ${multisig_private_headers})
 
-ryo_add_library(multisig
+omb_add_library(multisig
   ${multisig_sources}
   ${multisig_headers}
   ${multisig_private_headers})

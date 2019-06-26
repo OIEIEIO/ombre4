@@ -43,13 +43,13 @@
 # THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 cmake_minimum_required (VERSION 3.1.0)
-project (ryo CXX)
+project (omb CXX)
 
 file(GLOB CRYPTONOTE_PROTOCOL *)
 source_group(cryptonote_protocol FILES ${CRYPTONOTE_PROTOCOL})
 
-#ryo_private_headers(cryptonote_protocol ${CRYPTONOTE_PROTOCOL})
-ryo_add_library(cryptonote_protocol ${CRYPTONOTE_PROTOCOL})
+#omb_private_headers(cryptonote_protocol ${CRYPTONOTE_PROTOCOL})
+omb_add_library(cryptonote_protocol ${CRYPTONOTE_PROTOCOL})
 target_link_libraries(cryptonote_protocol
   PUBLIC
     p2p

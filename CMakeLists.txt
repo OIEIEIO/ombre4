@@ -56,7 +56,7 @@ endif()
 
 cmake_minimum_required(VERSION 3.1.0)
 
-project(ryo)
+project(omb)
 
 function (die msg)
   if (NOT WIN32)

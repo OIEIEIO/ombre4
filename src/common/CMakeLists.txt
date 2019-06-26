@@ -86,9 +86,9 @@ set(common_private_headers
   updates.h
   boost_locale.hpp)
 
-ryo_private_headers(common
+omb_private_headers(common
   ${common_private_headers})
-ryo_add_library(common
+omb_add_library(common
   ${common_sources}
   ${common_headers}
   ${common_private_headers}

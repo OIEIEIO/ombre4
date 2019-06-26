@@ -64,9 +64,9 @@ set(mnemonics_private_headers
   esperanto.h
   lojban.h)
 
-ryo_private_headers(mnemonics
+omb_private_headers(mnemonics
   ${mnemonics_private_headers})
-ryo_add_library(mnemonics
+omb_add_library(mnemonics
   ${mnemonics_sources}
   ${mnemonics_headers}
   ${mnemonics_private_headers})

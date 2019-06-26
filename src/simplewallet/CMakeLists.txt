@@ -50,7 +50,7 @@ set(simplewallet_headers)
 set(simplewallet_private_headers
   simplewallet.h)
 
-ryo_private_headers(simplewallet
+omb_private_headers(simplewallet
   ${simplewallet_private_headers})
 monero_add_executable(simplewallet
   ${simplewallet_sources}
@@ -78,5 +78,5 @@ target_link_libraries(simplewallet
     ${EXTRA_LIBRARIES})
 set_property(TARGET simplewallet
   PROPERTY
-    OUTPUT_NAME "ryo-wallet-cli")
+    OUTPUT_NAME "omb-wallet-cli")
 install(TARGETS simplewallet DESTINATION bin)
