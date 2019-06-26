@@ -215,24 +215,24 @@ struct common_config
 	static constexpr uint64_t DIFFICULTY_TARGET = 60; // 1 minutes
 
 	/////////////// V1 difficulty constants
-	static constexpr uint64_t DIFFICULTY_WINDOW_V1 = 93; // blocks
+	static constexpr uint64_t DIFFICULTY_WINDOW_V1 = 720; // blocks
 	static constexpr uint64_t DIFFICULTY_LAG_V1 = 15;	 // !!!
 	static constexpr uint64_t DIFFICULTY_CUT_V1 = 60;	 // timestamps to cut after sorting
 	static constexpr uint64_t DIFFICULTY_BLOCKS_COUNT_V1 = DIFFICULTY_WINDOW_V1 + DIFFICULTY_LAG_V1;
 	static constexpr uint64_t BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V1 = 60;
 
 	/////////////// V2 difficulty constants
-	static constexpr uint64_t DIFFICULTY_WINDOW_V2 = 93;
-	static constexpr uint64_t DIFFICULTY_CUT_V2 = 60;
+	static constexpr uint64_t DIFFICULTY_WINDOW_V2 = 17;
+	static constexpr uint64_t DIFFICULTY_CUT_V2 = 6;
 	static constexpr uint64_t DIFFICULTY_BLOCKS_COUNT_V2 = DIFFICULTY_WINDOW_V2 + DIFFICULTY_CUT_V2 * 2;
-	static constexpr uint64_t BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V2 = 60;
+	static constexpr uint64_t BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V2 = 12;
 	static constexpr uint64_t BLOCK_FUTURE_TIME_LIMIT_V2 = 60 * 24;
 
 	/////////////// V3 difficulty constants
-	static constexpr uint64_t DIFFICULTY_WINDOW_V3 = 93;
+	static constexpr uint64_t DIFFICULTY_WINDOW_V3 = 60;
 	static constexpr uint64_t DIFFICULTY_BLOCKS_COUNT_V3 = DIFFICULTY_WINDOW_V3 + 1;
-	static constexpr uint64_t BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V3 = 60;
-	static constexpr uint64_t BLOCK_FUTURE_TIME_LIMIT_V3 = DIFFICULTY_TARGET * 24;
+	static constexpr uint64_t BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V3 = 11;
+	static constexpr uint64_t BLOCK_FUTURE_TIME_LIMIT_V3 = DIFFICULTY_TARGET * 3;
 
 	/////////////// V4 difficulty constants
 	static constexpr uint64_t DIFFICULTY_WINDOW_V4 = 93;
