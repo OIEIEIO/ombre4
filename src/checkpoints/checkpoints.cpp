@@ -1,10 +1,36 @@
-// Copyright (c) 2018, Ryo Currency Project
+// Copyright (c) 2019, Ryo Currency Project
 // Portions copyright (c) 2014-2018, The Monero Project
 //
 // Portions of this file are available under BSD-3 license. Please see ORIGINAL-LICENSE for details
 // All rights reserved.
 //
-// Ryo changes to this code are in public domain. Please note, other licences may apply to the file.
+// Authors and copyright holders give permission for following:
+//
+// 1. Redistribution and use in source and binary forms WITHOUT modification.
+//
+// 2. Modification of the source form for your own personal use.
+//
+// As long as the following conditions are met:
+//
+// 3. You must not distribute modified copies of the work to third parties. This includes
+//    posting the work online, or hosting copies of the modified work for download.
+//
+// 4. Any derivative version of this work is also covered by this license, including point 8.
+//
+// 5. Neither the name of the copyright holders nor the names of the authors may be
+//    used to endorse or promote products derived from this software without specific
+//    prior written permission.
+//
+// 6. You agree that this licence is governed by and shall be construed in accordance
+//    with the laws of England and Wales.
+//
+// 7. You agree to submit all disputes arising out of or in connection with this licence
+//    to the exclusive jurisdiction of the Courts of England and Wales.
+//
+// Authors and copyright holders agree that:
+//
+// 8. This licence expires and the work covered by it is released into the
+//    public domain on 1st of February 2020
 //
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -155,7 +181,11 @@ bool checkpoints::init_default_checkpoints(network_type nettype)
 {
 	if(nettype == TESTNET)
 	{
-
+		ADD_CHECKPOINT(1,      "770309bd74bcebf90eb6f1197ad51601f917314088c5b1343316a4f581c51193");
+		ADD_CHECKPOINT(10,     "d5f139ed1cdc14ff2dda722de9ee2236f4030d18670e4ef6b41ab74e57a0a816");
+		ADD_CHECKPOINT(50000,  "3d251e3802cc5f6721babf8762bc13fdbc57df694c59759f3baba8d28b7d97c0");
+		ADD_CHECKPOINT(122670, "6ba1f78526997681363b2800c942fc56d3a92ac462e3393ba27d0c5611614193"); // ryo
+		ADD_CHECKPOINT(129749, "8393ff500fd806fd2364416076b7231af623d614dc080bfd1c7d59102c14c25a");
 		return true;
 	}
 	if(nettype == STAGENET)
@@ -164,15 +194,23 @@ bool checkpoints::init_default_checkpoints(network_type nettype)
 	}
 	else
 	{
-	ADD_CHECKPOINT(1,   "70993660d8935714ccc7f5ffbb2a270954b38033e1288e72846a8ac23c674d3b");
-    ADD_CHECKPOINT(10,  "370ef03bafc23e96cc3b8075d9b11d637363a87d6961e6a0497ec32cecb46750");
-    ADD_CHECKPOINT(100, "b31ac0e238926c24a209479e9d85f2567cd80402efa3ff7ffa074ac979e687d5");
-    ADD_CHECKPOINT(200, "32b2909e2d2b82c7cdfea6284152ca2f29475bfeddaf1e3b040d470c369c7016");
-    ADD_CHECKPOINT(500, "4c8af01873e68644eca9334c2407387988d9ccf731519516c0512b59da53319b");
-    ADD_CHECKPOINT(10000, "9d923965202d3f10d78417ff1468b5036812f8eb7c694683f2e26cb67a9e11b2");
-    ADD_CHECKPOINT(20000, "1eba0557e26eed29e68226b1228211ea4f91aa32337c46d6c85a995a7c38ff17");
-    ADD_CHECKPOINT(50000, "8a308882d1888890d61b294c328f895f9447935f78391879b59b614e28749bcc");
-    ADD_CHECKPOINT(58500, "8a52ec5f274b7a5ee9e29dbb38178785de4fa654fc8e86a832ef5ae7c371fb9d");
+		ADD_CHECKPOINT(1,      "82e8f378ea29d152146b6317903249751b809e97c0b6655f86e120b9de95c38a");
+		ADD_CHECKPOINT(10,     "e097b62bba41e5fd583d3a68de074cddd77c85a6158b031d963232146494a2d6");
+		ADD_CHECKPOINT(100,    "f3bd44c626cc12d449183ca84b58615d792523ba229385ff6717ab29a3e88926");
+		ADD_CHECKPOINT(1000,   "d284c992cb570f86c2e0bcfaa552b1d73bd40417e1c2a40f82bc6432217f0873");
+		ADD_CHECKPOINT(3000,   "81e040955b710dc5a5056668c4eaf3fbc4da2f72c0a63763250ede32a92e0f06");
+		ADD_CHECKPOINT(5000,   "e838c077bc66356d9bb321d4eb60f0851ef766f0619ddc4c6568a0f149aacea0");
+		ADD_CHECKPOINT(10000,  "360b96c3d0a5202c548672d550700d982ca15ad5627f70bce0a89dda840b3611");
+		ADD_CHECKPOINT(20000,  "603a45b60dd92ef4524c80d58411d09480b4668c54bc08dd651d838832bd399e");
+		ADD_CHECKPOINT(21300,  "d0a76e98ebb4d8e928d931a1807bba11a2fafdf544c119761b0ed6de4e1898cf"); // v2 fork
+		ADD_CHECKPOINT(50000,  "ae36641cf06ed788375bfb32f0038cbcd98f1d7bfb09937148fb1a57c6b52dd8");
+		ADD_CHECKPOINT(75000,  "b26f4e1225569da282b77659020bace52e5e89abbdee33e9e52266b1e71803a5");
+		ADD_CHECKPOINT(100000, "ffe474fe8353f90700c8138ddea3547d5c1e4a6facb1df85897e7a6e4daab540");
+		ADD_CHECKPOINT(116520, "da1cb8f30305cd5fad7d6c33b3ed88fede053e0926102d8e544b65e93e33a08b"); // v3 fork
+		ADD_CHECKPOINT(137500, "86a5ccbf6ef872e074a63440b980f0543b3177745bf2c6fd268f93164a277e8b"); // ryo fork
+		ADD_CHECKPOINT(137512, "008f4867478e8060352610b145055ad81b655a0f082f350505def8267275a1bd");
+		ADD_CHECKPOINT(150000, "debc58ac64fc8dc7ae35b0b8782ae33a0fe5855dc85930bc52b8fec3c1aee94a"); // v4 fork
+		ADD_CHECKPOINT(161500, "bd612bd580e3add2c41a2a3222bca09ff1d16755405c0d11e4c00dec637e574d"); // v5 fork
 	}
 
 	return true;

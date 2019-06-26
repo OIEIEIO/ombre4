@@ -29,7 +29,7 @@
 # Authors and copyright holders agree that:
 #
 # 8. This licence expires and the work covered by it is released into the 
-#    public domain on 1st of February 2019
+#    public domain on 1st of February 2020
 # 
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -49,9 +49,9 @@ set(serialization_headers)
 set(serialization_private_headers
   json_object.h)
 
-omb_private_headers(serialization
+ryo_private_headers(serialization
   ${serialization_private_headers})
-omb_add_library(serialization
+ryo_add_library(serialization
   ${serialization_sources}
   ${serialization_headers}
   ${serialization_private_headers})

@@ -29,7 +29,7 @@
 # Authors and copyright holders agree that:
 #
 # 8. This licence expires and the work covered by it is released into the 
-#    public domain on 1st of February 2019
+#    public domain on 1st of February 2020
 # 
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -53,9 +53,9 @@ set(ringct_basic_private_headers
   rctTypes.h
   bulletproofs.h)
 
-omb_private_headers(ringct_basic
+ryo_private_headers(ringct_basic
   ${crypto_private_headers})
-omb_add_library(ringct_basic
+ryo_add_library(ringct_basic
   ${ringct_basic_sources}
   ${ringct_basic_private_headers})
 target_link_libraries(ringct_basic
@@ -76,9 +76,9 @@ set(ringct_private_headers
   rctSigs.h
 )
 
-omb_private_headers(ringct
+ryo_private_headers(ringct
   ${crypto_private_headers})
-omb_add_library(ringct
+ryo_add_library(ringct
   ${ringct_sources}
   ${ringct_headers}
   ${ringct_private_headers})

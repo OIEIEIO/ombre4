@@ -1,4 +1,4 @@
-# Copyright (c) 2018, Ryo Currency Project
+# Copyright (c) 2019, Ryo Currency Project
 # Portions copyright (c) 2014-2018, The Monero Project
 #
 # Portions of this file are available under BSD-3 license. Please see ORIGINAL-LICENSE for details
@@ -30,7 +30,7 @@
 # Authors and copyright holders agree that:
 #
 # 8. This licence expires and the work covered by it is released into the 
-#    public domain on 1st of February 2019
+#    public domain on 1st of February 2020
 # 
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -64,7 +64,7 @@ set(blockchain_import_private_headers
   bootstrap_serialization.h
   )
 
-omb_private_headers(blockchain_import
+ryo_private_headers(blockchain_import
 	  ${blockchain_import_private_headers})
 
 set(blockchain_export_sources
@@ -79,7 +79,7 @@ set(blockchain_export_private_headers
   bootstrap_serialization.h
   )
 
-omb_private_headers(blockchain_export
+ryo_private_headers(blockchain_export
 	  ${blockchain_export_private_headers})
 
 
@@ -93,7 +93,7 @@ set(blockchain_blackball_private_headers
   bootstrap_serialization.h
   )
 
-omb_private_headers(blockchain_blackball
+ryo_private_headers(blockchain_blackball
 	  ${blockchain_blackball_private_headers})
 
 set(blockchain_usage_sources
@@ -102,7 +102,7 @@ set(blockchain_usage_sources
 
 set(blockchain_usage_private_headers)
 
-omb_private_headers(blockchain_usage
+ryo_private_headers(blockchain_usage
 	  ${blockchain_usage_private_headers})
 
 

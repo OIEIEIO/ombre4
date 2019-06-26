@@ -1,4 +1,4 @@
-# Copyright (c) 2018, Ryo Currency Project
+# Copyright (c) 2019, Ryo Currency Project
 # Portions copyright (c) 2014-2018, The Monero Project
 #
 # Portions of this file are available under BSD-3 license. Please see ORIGINAL-LICENSE for details
@@ -30,7 +30,7 @@
 # Authors and copyright holders agree that:
 #
 # 8. This licence expires and the work covered by it is released into the 
-#    public domain on 1st of February 2019
+#    public domain on 1st of February 2020
 # 
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -62,9 +62,9 @@ set(wallet_private_headers
   ringdb.h
   node_rpc_proxy.h)
 
-omb_private_headers(wallet
+ryo_private_headers(wallet
   ${wallet_private_headers})
-omb_add_library(wallet
+ryo_add_library(wallet
   ${wallet_sources}
   ${wallet_private_headers})
 target_link_libraries(wallet
@@ -91,7 +91,7 @@ set(wallet_rpc_headers)
 set(wallet_rpc_private_headers
   wallet_rpc_server.h)
 
-omb_private_headers(wallet_rpc_server
+ryo_private_headers(wallet_rpc_server
   ${wallet_rpc_private_headers})
 monero_add_executable(wallet_rpc_server
   ${wallet_rpc_sources}

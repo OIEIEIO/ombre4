@@ -1,4 +1,4 @@
-# Copyright (c) 2018, Ryo Currency Project
+# Copyright (c) 2019, Ryo Currency Project
 # Portions copyright (c) 2014-2018, The Monero Project
 #
 # Portions of this file are available under BSD-3 license. Please see ORIGINAL-LICENSE for details
@@ -30,7 +30,7 @@
 # Authors and copyright holders agree that:
 #
 # 8. This licence expires and the work covered by it is released into the 
-#    public domain on 1st of February 2019
+#    public domain on 1st of February 2020
 # 
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 # EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -55,7 +55,7 @@ if (NOT (MINGW OR APPLE OR FREEBSD OR OPENBSD OR DRAGONFLY))
   add_compile_options("${WARNINGS_AS_ERRORS_FLAG}") # applies only to targets that follow
 endif()
 
-function (omb_private_headers group)
+function (ryo_private_headers group)
   source_group("${group}\\Private"
     FILES
       ${ARGN})
@@ -98,11 +98,11 @@ function (monero_add_executable name)
   enable_stack_trace("${name}")
 endfunction ()
 
-function (omb_add_library name)
-    omb_add_library_with_deps(NAME "${name}" SOURCES ${ARGN})
+function (ryo_add_library name)
+    ryo_add_library_with_deps(NAME "${name}" SOURCES ${ARGN})
 endfunction()
 
-function (omb_add_library_with_deps)
+function (ryo_add_library_with_deps)
   cmake_parse_arguments(RYO_ADD_LIBRARY "" "NAME" "DEPENDS;SOURCES" ${ARGN})
   source_group("${RYO_ADD_LIBRARY_NAME}" FILES ${RYO_ADD_LIBRARY_SOURCES})
 
@@ -124,8 +124,8 @@ function (omb_add_library_with_deps)
 endfunction ()
 
 include(Version)
-omb_add_library(version SOURCES ${CMAKE_BINARY_DIR}/version.cpp DEPENDS genversion)
-omb_add_library(ccnconfig SOURCES ${CMAKE_SOURCE_DIR}/src/cryptonote_config.cpp)
+ryo_add_library(version SOURCES ${CMAKE_BINARY_DIR}/version.cpp DEPENDS genversion)
+ryo_add_library(ccnconfig SOURCES ${CMAKE_SOURCE_DIR}/src/cryptonote_config.cpp)
 
 add_subdirectory(common)
 add_subdirectory(crypto)
