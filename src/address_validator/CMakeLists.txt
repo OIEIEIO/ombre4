@@ -62,5 +62,5 @@ target_link_libraries(address_validator
     fmt::fmt-header-only)
 set_property(TARGET address_validator
   PROPERTY
-    OUTPUT_NAME "omb-address-validator")
+    OUTPUT_NAME "ryo-address-validator")
 install(TARGETS address_validator DESTINATION bin)

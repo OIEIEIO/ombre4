@@ -118,7 +118,7 @@ target_link_libraries(wallet_rpc_server
     ${EXTRA_LIBRARIES})
 set_property(TARGET wallet_rpc_server
   PROPERTY
-    OUTPUT_NAME "omb-wallet-rpc")
+    OUTPUT_NAME "ryo-wallet-rpc")
 install(TARGETS wallet_rpc_server DESTINATION bin)
 
 
