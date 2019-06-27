@@ -9,7 +9,7 @@
 #   define DEF_RYO_BRANCH "@GIT_BRANCH@"
 #endif
 
-#define DEF_RYO_RELEASE_NAME "Shadow Walker"
+#define DEF_RYO_RELEASE_NAME "Social Shadow"
 #define DEF_RYO_VERSION_FULL DEF_RYO_VERSION "-" DEF_RYO_VERSION_TAG "/" DEF_RYO_BRANCH
 
 #include "version.h"
