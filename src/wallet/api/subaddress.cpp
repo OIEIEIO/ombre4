@@ -50,7 +50,7 @@
 
 #include <vector>
 
-namespace Ryo
+namespace Ombre
 {
 
 Subaddress::~Subaddress() {}

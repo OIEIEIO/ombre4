@@ -1911,7 +1911,7 @@ bool core_rpc_server::on_update(const COMMAND_RPC_UPDATE::request &req, COMMAND_
 {
 #if 0
     PERF_TIMER(on_update);
-    static const char software[] = "ryo";
+    static const char software[] = "ombre";
 #ifdef BUILD_TAG
     static const char buildtag[] = BOOST_PP_STRINGIZE(BUILD_TAG);
     static const char subdir[] = "cli";

@@ -452,7 +452,7 @@ bool connection<t_protocol_handler>::do_send(const void *ptr, size_t cb)
 				{
 					MDEBUG("do_send() DONE ***FAILED*** from packet=" << cb << " B for ptr=" << ptr);
 					MDEBUG("do_send() SEND was aborted in middle of big package - this is mostly harmless "
-						   << " (e.g. peer closed connection) but if it causes trouble tell us at https://github.com/ryo-currency/ryo. " << cb);
+						   << " (e.g. peer closed connection) but if it causes trouble tell us at https://t.me/joinchat/GS1FBBHCq6u-LdMIUoCjOw. " << cb);
 					return false; // partial failure in sending
 				}
 				pos = pos + len;

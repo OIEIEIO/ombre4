@@ -52,7 +52,7 @@
 
 #include <vector>
 
-namespace Ryo
+namespace Ombre
 {
 
 AddressBook::~AddressBook() {}

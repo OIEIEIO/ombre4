@@ -50,7 +50,7 @@
 #include <string>
 #include <vector>
 
-namespace Ryo
+namespace Ombre
 {
 
 class WalletImpl;

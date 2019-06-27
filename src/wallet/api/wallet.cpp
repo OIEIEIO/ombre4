@@ -71,7 +71,7 @@ using namespace cryptonote;
 //#undef RYO_DEFAULT_LOG_CATEGORY
 //#define RYO_DEFAULT_LOG_CATEGORY "WalletAPI"
 
-namespace Ryo
+namespace Ombre
 {
 
 namespace

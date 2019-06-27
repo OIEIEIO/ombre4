@@ -150,7 +150,7 @@ boost::optional<boost::program_options::variables_map> main(
 	command_line::add_arg(desc_params, arg_max_concurrency);
 	command_line::add_arg(desc_params, arg_config_file);
 
-	i18n_set_language("translations", "ryo", lang);
+	i18n_set_language("translations", "ombre", lang);
 
 	po::options_description desc_all;
 	desc_all.add(desc_general).add(desc_params);
@@ -161,8 +161,8 @@ boost::optional<boost::program_options::variables_map> main(
 
 		if(command_line::get_arg(vm, command_line::arg_help))
 		{
-			Print(print) << "Ryo '" << RYO_RELEASE_NAME << "' (" << RYO_VERSION_FULL << ")" << ENDL;
-			Print(print) << wallet_args::tr("This is the command line ryo wallet. It needs to connect to a ryo daemon to work correctly.") << ENDL;
+			Print(print) << "Ombre '" << RYO_RELEASE_NAME << "' (" << RYO_VERSION_FULL << ")" << ENDL;
+			Print(print) << wallet_args::tr("This is the command line ombre wallet. It needs to connect to a ombre daemon to work correctly.") << ENDL;
 			Print(print) << wallet_args::tr("Usage:") << ENDL << "  " << usage;
 			Print(print) << desc_all;
 			error_code = 0;
@@ -170,7 +170,7 @@ boost::optional<boost::program_options::variables_map> main(
 		}
 		else if(command_line::get_arg(vm, command_line::arg_version))
 		{
-			Print(print) << "Ryo '" << RYO_RELEASE_NAME << "' (" << RYO_VERSION_FULL << ")";
+			Print(print) << "Ombre '" << RYO_RELEASE_NAME << "' (" << RYO_VERSION_FULL << ")";
 			error_code = 0;
 			return false;
 		}
@@ -215,7 +215,7 @@ boost::optional<boost::program_options::variables_map> main(
 	if(!command_line::is_arg_defaulted(vm, arg_max_concurrency))
 		tools::set_max_concurrency(command_line::get_arg(vm, arg_max_concurrency));
 
-	Print(print) << "Ryo '" << RYO_RELEASE_NAME << "' (" << RYO_VERSION_FULL << ")";
+	Print(print) << "Ombre '" << RYO_RELEASE_NAME << "' (" << RYO_VERSION_FULL << ")";
 
 	if(!command_line::is_arg_defaulted(vm, arg_log_level))
 		MINFO("Setting log level = " << command_line::get_arg(vm, arg_log_level));

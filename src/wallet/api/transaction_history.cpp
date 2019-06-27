@@ -56,7 +56,7 @@
 
 using namespace epee;
 
-namespace Ryo
+namespace Ombre
 {
 
 TransactionHistory::~TransactionHistory() {}

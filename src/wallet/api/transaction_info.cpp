@@ -48,7 +48,7 @@
 
 using namespace std;
 
-namespace Ryo
+namespace Ombre
 {
 
 TransactionInfo::~TransactionInfo() {}

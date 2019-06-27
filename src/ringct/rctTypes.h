@@ -69,7 +69,7 @@ extern "C" {
 #include "serialization/vector.h"
 #include "span.h"
 
-//atomic units of ryo
+//atomic units of ombre
 #define ATOMS 64
 
 //for printing large ints
@@ -146,7 +146,7 @@ struct ecdhTuple
 	BEGIN_SERIALIZE_OBJECT()
 	FIELD(mask)
 	FIELD(amount)
-	// FIELD(senderPk) // not serialized, as we do not use it in ryo currently
+	// FIELD(senderPk) // not serialized, as we do not use it in ombre currently
 	END_SERIALIZE()
 };
 

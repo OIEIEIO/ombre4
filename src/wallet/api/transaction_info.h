@@ -48,7 +48,7 @@
 #include <ctime>
 #include <string>
 
-namespace Ryo
+namespace Ombre
 {
 
 class TransactionHistoryImpl;

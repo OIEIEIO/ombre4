@@ -48,7 +48,7 @@
 #include "wallet/api/wallet2_api.h"
 #include <string>
 
-namespace Ryo
+namespace Ombre
 {
 
 class WalletManagerImpl : public WalletManager

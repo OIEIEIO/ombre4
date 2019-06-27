@@ -63,7 +63,7 @@ namespace epee
 unsigned int g_test_dbg_lock_sleep = 0;
 }
 
-namespace Ryo
+namespace Ombre
 {
 
 Wallet *WalletManagerImpl::createWallet(const std::string &path, const std::string &password,

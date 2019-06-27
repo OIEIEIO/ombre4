@@ -1,4 +1,4 @@
-// Copyright (c) 2019, Ryo Currency Project
+// Copyright (c) 2019, Ombre Currency Project
 // Portions copyright (c) 2014-2018, The Monero Project
 //
 // Portions of this file are available under BSD-3 license. Please see ORIGINAL-LICENSE for details
@@ -96,8 +96,8 @@ using namespace std;
 using namespace crypto;
 using namespace cryptonote;
 
-//#undef RYO_DEFAULT_LOG_CATEGORY
-//#define RYO_DEFAULT_LOG_CATEGORY "wallet.wallet2"
+//#undef Ombre_DEFAULT_LOG_CATEGORY
+//#define Ombre_DEFAULT_LOG_CATEGORY "wallet.wallet2"
 
 // used to choose when to stop adding outputs to a tx
 #define APPROXIMATE_INPUT_BYTES 80
@@ -109,12 +109,15 @@ using namespace cryptonote;
 #define CHACHA8_KEY_TAIL 0x8c
 
 #define UNSIGNED_TX_PREFIX_LEGACY "Sumokoin unsigned tx set\002"
-#define UNSIGNED_TX_PREFIX "Ryo unsigned tx set\003"
+#define UNSIGNED_TX_PREFIX "Ombre unsigned tx set\003"
+#define UNSIGNED_TX_PREFIX "Ombre unsigned tx set\004"
 
 #define SIGNED_TX_PREFIX_LEGACY "Sumokoin signed tx set\002"
-#define SIGNED_TX_PREFIX "Ryo signed tx set\003"
+#define SIGNED_TX_PREFIX "Ombre signed tx set\003"
+#define SIGNED_TX_PREFIX "Ombre signed tx set\004"
 
-#define MULTISIG_UNSIGNED_TX_PREFIX "Ryo multisig unsigned tx set\003"
+#define MULTISIG_UNSIGNED_TX_PREFIX "Ombre multisig unsigned tx set\003"
+#define MULTISIG_UNSIGNED_TX_PREFIX "Ombre multisig unsigned tx set\004"
 
 #define RECENT_OUTPUT_RATIO (0.5) // 50% of outputs are from the recent zone
 #define RECENT_OUTPUT_DAYS (1.8)  // last 1.8 day makes up the recent zone (taken from monerolink.pdf, Miller et al)
@@ -129,9 +132,11 @@ using namespace cryptonote;
 #define SUBADDRESS_LOOKAHEAD_MINOR 200
 
 #define KEY_IMAGE_EXPORT_FILE_MAGIC_LEGACY "Sumokoin key image export\002"
-#define KEY_IMAGE_EXPORT_FILE_MAGIC "Ryo key image export\003"
+#define KEY_IMAGE_EXPORT_FILE_MAGIC "Ombre key image export\003"
+#define KEY_IMAGE_EXPORT_FILE_MAGIC "Ombre key image export\004"
 
-#define MULTISIG_EXPORT_FILE_MAGIC "Ryo multisig export\003"
+#define MULTISIG_EXPORT_FILE_MAGIC "Ombre multisig export\003"
+#define MULTISIG_EXPORT_FILE_MAGIC "Ombre multisig export\004"
 
 #define SEGREGATION_FORK_HEIGHT 137500
 #define TESTNET_SEGREGATION_FORK_HEIGHT 100000
@@ -143,7 +148,7 @@ namespace
 std::string get_default_ringdb_path()
 {
 	boost::filesystem::path dir = tools::get_default_data_dir();
-	// remove .ryo, replace with .shared-ringdb
+	// remove .Ombre, replace with .shared-ringdb
 	dir = dir.remove_filename();
 	dir /= ".shared-ringdb";
 	return dir.string();
@@ -2555,9 +2560,9 @@ bool wallet2::store_keys(const std::string &keys_file_name, const epee::wipeable
 	json.AddMember("refresh_type", value2, json.GetAllocator());
 
 	value2.SetUint64(m_refresh_from_block_height);
-	/* refresh_height was used until ryo version 0.2.0.2.
-	 * The new entry refresh_height2 avoids an refresh bug in older ryo versions
-	 * https://github.com/ryo-currency/ryo-currency/pull/48
+	/* refresh_height was used until Ombre version 0.2.0.2.
+	 * The new entry refresh_height2 avoids an refresh bug in older Ombre versions
+	 * https://github.com/Ombre-currency/Ombre-currency/pull/48
 	 */
 	json.AddMember("refresh_height2", value2, json.GetAllocator());
 
@@ -4677,7 +4682,7 @@ bool wallet2::load_unsigned_tx(const std::string &unsigned_filename, unsigned_tx
 	}
 	size_t magiclen = strlen(UNSIGNED_TX_PREFIX) - 1;
 	bool is_legacy = false;
-	// search first for ryo
+	// search first for Ombre
 	if(strncmp(s.c_str(), UNSIGNED_TX_PREFIX, magiclen))
 	{
 		magiclen = strlen(UNSIGNED_TX_PREFIX_LEGACY) - 1;
@@ -4880,7 +4885,7 @@ bool wallet2::load_tx(const std::string &signed_filename, std::vector<tools::wal
 
 	size_t magiclen = strlen(SIGNED_TX_PREFIX) - 1;
 	bool is_legacy = false;
-	//parse first ryo
+	//parse first Ombre
 	if(strncmp(s.c_str(), SIGNED_TX_PREFIX, magiclen))
 	{
 		magiclen = strlen(SIGNED_TX_PREFIX_LEGACY) - 1;
@@ -9257,7 +9262,7 @@ std::string wallet2::make_uri(const std::string &address, const std::string &pay
 		}
 	}
 
-	std::string uri = "ryo:" + address;
+	std::string uri = "omb:" + address;
 	unsigned int n_fields = 0;
 
 	if(!payment_id.empty())
@@ -9287,9 +9292,9 @@ std::string wallet2::make_uri(const std::string &address, const std::string &pay
 bool wallet2::parse_uri(const std::string &uri, std::string &address, std::string &payment_id, uint64_t &amount, std::string &tx_description, std::string &recipient_name, std::vector<std::string> &unknown_parameters, std::string &error)
 {
 	const size_t separator_pos = uri.find(':');
-	if(separator_pos == std::string::npos || uri.substr(0, separator_pos) != "ryo")
+	if(separator_pos == std::string::npos || uri.substr(0, separator_pos) != "Ombre")
 	{
-		error = std::string("URI has wrong scheme (expected \"ryo:\"): ") + uri;
+		error = std::string("URI has wrong scheme (expected \"Ombre:\"): ") + uri;
 		return false;
 	}
 	// exclude separator
@@ -9526,7 +9531,7 @@ std::vector<std::pair<uint64_t, uint64_t>> wallet2::estimate_backlog(const std::
 		uint64_t nblocks_min = priority_size_min / full_reward_zone;
 		uint64_t nblocks_max = priority_size_max / full_reward_zone;
 		MDEBUG("estimate_backlog: priority_size " << priority_size_min << " - " << priority_size_max << " for "
-												  << our_fee_byte_min << " - " << our_fee_byte_max << " nanoRyo byte fee, "
+												  << our_fee_byte_min << " - " << our_fee_byte_max << " nanoOmbre byte fee, "
 												  << nblocks_min << " - " << nblocks_max << " blocks at block size " << full_reward_zone);
 		blocks.push_back(std::make_pair(nblocks_min, nblocks_max));
 	}

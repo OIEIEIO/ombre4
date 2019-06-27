@@ -115,7 +115,7 @@ static const command_line::arg_descriptor<uint64_t> arg_show_time_stats = {
 static const command_line::arg_descriptor<size_t> arg_block_sync_size = {
 	"block-sync-size", "How many blocks to sync at once during chain synchronization (0 = adaptive).", 0};
 static const command_line::arg_descriptor<std::string> arg_check_updates = {
-	"check-updates", "Check for new versions of ryo: [disabled|notify|download|update]", "notify"};
+	"check-updates", "Check for new versions of omb: [disabled|notify|download|update]", "notify"};
 static const command_line::arg_descriptor<bool> arg_fluffy_blocks = {
 	"fluffy-blocks", "Relay blocks as fluffy blocks (obsolete, now default)", true};
 static const command_line::arg_descriptor<bool> arg_no_fluffy_blocks = {
@@ -1365,7 +1365,7 @@ uint8_t core::get_hard_fork_version(uint64_t height) const
 bool core::check_updates()
 {
 #if 0
-    static const char software[] = "ryo";
+    static const char software[] = "ombre";
 #ifdef BUILD_TAG
     static const char buildtag[] = BOOST_PP_STRINGIZE(BUILD_TAG);
     static const char subdir[] = "cli"; // because it can never be simple

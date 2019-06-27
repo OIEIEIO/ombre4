@@ -55,7 +55,7 @@
 #include <boost/thread/thread.hpp>
 #include <string>
 
-namespace Ryo
+namespace Ombre
 {
 class TransactionHistoryImpl;
 class PendingTransactionImpl;

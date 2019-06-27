@@ -51,7 +51,7 @@
 
 namespace daemon_args
 {
-std::string const WINDOWS_SERVICE_NAME = "Ryo Daemon";
+std::string const WINDOWS_SERVICE_NAME = "Ombre Daemon";
 
 const command_line::arg_descriptor<std::string, false, true, 2> arg_config_file = {
 	"config-file", "Specify configuration file", (daemonizer::get_default_data_dir() / std::string(CRYPTONOTE_NAME ".conf")).string(), {{&cryptonote::arg_testnet_on, &cryptonote::arg_stagenet_on}}, [](std::array<bool, 2> testnet_stagenet, bool defaulted, std::string val) -> std::string {

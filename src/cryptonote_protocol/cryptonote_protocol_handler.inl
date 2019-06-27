@@ -1570,7 +1570,7 @@ bool t_cryptonote_protocol_handler<t_core>::on_connection_synchronized()
 	if(m_synchronized.compare_exchange_strong(val_expected, true))
 	{
 		MGINFO_YELLOW(ENDL << "**********************************************************************" << ENDL
-						   << "You are now synchronized with the network. You may now start ryo-wallet-cli." << ENDL
+						   << "You are now synchronized with the network. You may now start ombre-wallet-cli." << ENDL
 						   << ENDL
 						   << "Use the \"help\" command to see the list of available commands." << ENDL
 						   << "**********************************************************************");

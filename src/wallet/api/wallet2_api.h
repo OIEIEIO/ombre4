@@ -54,7 +54,7 @@
 #include <vector>
 
 //  Public interface for libwallet library
-namespace Ryo
+namespace Ombre
 {
 
 enum NetworkType : uint8_t

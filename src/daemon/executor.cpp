@@ -56,7 +56,7 @@
 
 namespace daemonize
 {
-std::string const t_executor::NAME = "Ryo Daemon";
+std::string const t_executor::NAME = "Ombre Daemon";
 
 void t_executor::init_options(
 	boost::program_options::options_description &configurable_options)
@@ -72,7 +72,7 @@ std::string const &t_executor::name()
 t_daemon t_executor::create_daemon(
 	boost::program_options::variables_map const &vm)
 {
-	LOG_PRINT_L0("Ryo '" << RYO_RELEASE_NAME << "' (" << RYO_VERSION_FULL << ") Daemonised");
+	LOG_PRINT_L0("Ombre '" << RYO_RELEASE_NAME << "' (" << RYO_VERSION_FULL << ") Daemonised");
 	return t_daemon{vm};
 }
 
