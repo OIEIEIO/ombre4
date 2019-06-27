@@ -110,14 +110,11 @@ using namespace cryptonote;
 
 #define UNSIGNED_TX_PREFIX_LEGACY "Sumokoin unsigned tx set\002"
 #define UNSIGNED_TX_PREFIX "Ombre unsigned tx set\003"
-#define UNSIGNED_TX_PREFIX "Ombre unsigned tx set\004"
 
 #define SIGNED_TX_PREFIX_LEGACY "Sumokoin signed tx set\002"
 #define SIGNED_TX_PREFIX "Ombre signed tx set\003"
-#define SIGNED_TX_PREFIX "Ombre signed tx set\004"
 
 #define MULTISIG_UNSIGNED_TX_PREFIX "Ombre multisig unsigned tx set\003"
-#define MULTISIG_UNSIGNED_TX_PREFIX "Ombre multisig unsigned tx set\004"
 
 #define RECENT_OUTPUT_RATIO (0.5) // 50% of outputs are from the recent zone
 #define RECENT_OUTPUT_DAYS (1.8)  // last 1.8 day makes up the recent zone (taken from monerolink.pdf, Miller et al)
@@ -133,10 +130,8 @@ using namespace cryptonote;
 
 #define KEY_IMAGE_EXPORT_FILE_MAGIC_LEGACY "Sumokoin key image export\002"
 #define KEY_IMAGE_EXPORT_FILE_MAGIC "Ombre key image export\003"
-#define KEY_IMAGE_EXPORT_FILE_MAGIC "Ombre key image export\004"
 
 #define MULTISIG_EXPORT_FILE_MAGIC "Ombre multisig export\003"
-#define MULTISIG_EXPORT_FILE_MAGIC "Ombre multisig export\004"
 
 #define SEGREGATION_FORK_HEIGHT 137500
 #define TESTNET_SEGREGATION_FORK_HEIGHT 100000
