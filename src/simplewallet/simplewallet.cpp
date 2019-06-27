@@ -106,7 +106,6 @@ typedef cryptonote::simple_wallet sw;
 
 #define OUTPUT_EXPORT_FILE_MAGIC_LEGACY "Sumokoin output export\002"
 #define OUTPUT_EXPORT_FILE_MAGIC "Ryo output export\003"
-#define OUTPUT_EXPORT_FILE_MAGIC "Ombre output export\004"
 
 #define LOCK_IDLE_SCOPE()                                                                                               \
 	bool auto_refresh_enabled = m_auto_refresh_enabled.load(std::memory_order_relaxed);                                 \
