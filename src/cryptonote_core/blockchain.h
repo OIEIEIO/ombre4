@@ -4,7 +4,7 @@
 // Portions of this file are available under BSD-3 license. Please see ORIGINAL-LICENSE for details
 // All rights reserved.
 //
-// Ombre changes to this code are in public domain. Please note, other licences may apply to the file.
+// Ryo changes to this code are in public domain. Please note, other licences may apply to the file.
 //
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -1364,7 +1364,7 @@ class Blockchain
      * @brief loads block hashes from compiled-in data set
      *
      * A (possibly empty) set of block hashes can be compiled into the
-     * Ombre daemon binary.  This function loads those hashes into
+     * ryo daemon binary.  This function loads those hashes into
      * a useful state.
      */
 	void load_compiled_in_block_hashes();

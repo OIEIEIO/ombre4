@@ -1,36 +1,10 @@
-// Copyright (c) 2019, Ryo Currency Project
+// Copyright (c) 2018, Ryo Currency Project
 // Portions copyright (c) 2014-2018, The Monero Project
 //
 // Portions of this file are available under BSD-3 license. Please see ORIGINAL-LICENSE for details
 // All rights reserved.
 //
-// Authors and copyright holders give permission for following:
-//
-// 1. Redistribution and use in source and binary forms WITHOUT modification.
-//
-// 2. Modification of the source form for your own personal use.
-//
-// As long as the following conditions are met:
-//
-// 3. You must not distribute modified copies of the work to third parties. This includes
-//    posting the work online, or hosting copies of the modified work for download.
-//
-// 4. Any derivative version of this work is also covered by this license, including point 8.
-//
-// 5. Neither the name of the copyright holders nor the names of the authors may be
-//    used to endorse or promote products derived from this software without specific
-//    prior written permission.
-//
-// 6. You agree that this licence is governed by and shall be construed in accordance
-//    with the laws of England and Wales.
-//
-// 7. You agree to submit all disputes arising out of or in connection with this licence
-//    to the exclusive jurisdiction of the Courts of England and Wales.
-//
-// Authors and copyright holders agree that:
-//
-// 8. This licence expires and the work covered by it is released into the
-//    public domain on 1st of February 2020
+// Ombre changes to this code are in public domain. Please note, other licences may apply to the file.
 //
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -52,19 +26,19 @@
 
 #define CRYPTONOTE_DNS_TIMEOUT_MS 20000
 
-#define CRYPTONOTE_GETBLOCKTEMPLATE_MAX_BLOCK_SIZE 500000000 //size of block (bytes) that is the maximum that miners will produce
+#define CRYPTONOTE_GETBLOCKTEMPLATE_MAX_BLOCK_SIZE 196608 //size of block (bytes) that is the maximum that miners will produce
 #define CRYPTONOTE_PUBLIC_ADDRESS_TEXTBLOB_VER 0
 #define CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW 60
-#define CURRENT_TRANSACTION_VERSION 3
+#define CURRENT_TRANSACTION_VERSION 2
 #define MIN_TRANSACTION_VERSION 2
 #define MAX_TRANSACTION_VERSION 3
 #define CRYPTONOTE_DEFAULT_TX_SPENDABLE_AGE 10
 
 // MONEY_SUPPLY - total number coins to be generated
-#define MONEY_SUPPLY ((uint64_t)500000000000000000)		// 0.5 billion.
+#define MONEY_SUPPLY ((uint64_t)500000000000000000)
 #define EMISSION_SPEED_FACTOR 21
-#define FINAL_SUBSIDY ((uint64_t)10000000000)			  // 1 * pow(10, 9)
-#define GENESIS_BLOCK_REWARD ((uint64_t)1000000000) //
+#define FINAL_SUBSIDY ((uint64_t)10000000000)			  // 4 * pow(10, 9)
+#define GENESIS_BLOCK_REWARD ((uint64_t)1000000000) // ~10% dev premine, now  mostly burned
 #define EMISSION_SPEED_FACTOR_PER_MINUTE (20)
 
 #define CRYPTONOTE_REWARD_BLOCKS_WINDOW 60
@@ -112,7 +86,7 @@
 #define CRYPTONOTE_NAME "ombre"
 #define CRYPTONOTE_POOLDATA_FILENAME "poolstate.bin"
 #define CRYPTONOTE_BLOCKCHAINDATA_FILENAME "blockchain.bin"
-#define CRYPTONOTE_BLOCKCHAINDATA_LOCK_FILENAME "blockchain.bin.lock"
+#define CRYPTONOTE_BLOCKCHAINDATA_LOCK_FILENAME "lock.mdb"
 #define P2P_NET_DATA_FILENAME "p2pstate.bin"
 #define MINER_CONFIG_FILE_NAME "miner_conf.json"
 
@@ -212,33 +186,33 @@ struct common_config
 	static constexpr uint64_t POISSON_CHECK_DEPTH = 60;   // Main-chain depth of the poisson check. The attacker will have to tamper 50% of those blocks
 	static constexpr double POISSON_LOG_P_REJECT = -75.0; // Reject reorg if the probablity that the timestamps are genuine is below e^x, -75 = 10^-33
 
-	static constexpr uint64_t DIFFICULTY_TARGET = 60; // 1 minutes
+	static constexpr uint64_t DIFFICULTY_TARGET = 60; // 4 minutes
 
 	/////////////// V1 difficulty constants
-	static constexpr uint64_t DIFFICULTY_WINDOW_V1 = 720; // blocks
+	static constexpr uint64_t DIFFICULTY_WINDOW_V1 = 93; // blocks
 	static constexpr uint64_t DIFFICULTY_LAG_V1 = 15;	 // !!!
 	static constexpr uint64_t DIFFICULTY_CUT_V1 = 60;	 // timestamps to cut after sorting
 	static constexpr uint64_t DIFFICULTY_BLOCKS_COUNT_V1 = DIFFICULTY_WINDOW_V1 + DIFFICULTY_LAG_V1;
 	static constexpr uint64_t BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V1 = 60;
 
 	/////////////// V2 difficulty constants
-	static constexpr uint64_t DIFFICULTY_WINDOW_V2 = 17;
-	static constexpr uint64_t DIFFICULTY_CUT_V2 = 6;
+	static constexpr uint64_t DIFFICULTY_WINDOW_V2 = 93;
+	static constexpr uint64_t DIFFICULTY_CUT_V2 = 60;
 	static constexpr uint64_t DIFFICULTY_BLOCKS_COUNT_V2 = DIFFICULTY_WINDOW_V2 + DIFFICULTY_CUT_V2 * 2;
-	static constexpr uint64_t BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V2 = 12;
+	static constexpr uint64_t BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V2 = 60;
 	static constexpr uint64_t BLOCK_FUTURE_TIME_LIMIT_V2 = 60 * 24;
 
 	/////////////// V3 difficulty constants
-	static constexpr uint64_t DIFFICULTY_WINDOW_V3 = 60;
-	static constexpr uint64_t DIFFICULTY_BLOCKS_COUNT_V3 = DIFFICULTY_WINDOW_V3 + 1;
-	static constexpr uint64_t BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V3 = 11;
-	static constexpr uint64_t BLOCK_FUTURE_TIME_LIMIT_V3 = DIFFICULTY_TARGET * 3;
+	static constexpr uint64_t DIFFICULTY_WINDOW_V3 = 93;
+	static constexpr uint64_t DIFFICULTY_BLOCKS_COUNT_V3 = DIFFICULTY_WINDOW_V3 + 0;
+	static constexpr uint64_t BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V3 = 60;
+	static constexpr uint64_t BLOCK_FUTURE_TIME_LIMIT_V3 = DIFFICULTY_TARGET * 24;
 
 	/////////////// V4 difficulty constants
 	static constexpr uint64_t DIFFICULTY_WINDOW_V4 = 93;
-	static constexpr uint64_t DIFFICULTY_BLOCKS_COUNT_V4 = DIFFICULTY_WINDOW_V4 + 1;
+	static constexpr uint64_t DIFFICULTY_BLOCKS_COUNT_V4 = DIFFICULTY_WINDOW_V4 + 0;
 
-	static constexpr uint64_t CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE = 300 * 1024; // 300 kB
+	static constexpr uint64_t CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE = 300 * 1024; // 240 kB
 	static constexpr uint64_t BLOCK_SIZE_GROWTH_FAVORED_ZONE = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE * 4;
 	static constexpr uint64_t TRANSACTION_SIZE_LIMIT = 300 * 1024;			// 300 kB
 	static constexpr uint64_t BLOCK_SIZE_LIMIT_ABSOLUTE = 16 * 1024 * 1024; // 16 MB
@@ -254,11 +228,11 @@ struct common_config
 	///////////////// Dev fund constants
 	// 
 	static constexpr const char* DEV_FUND_ADDRESS = "ShaDowSiWnzeiZ8ciSF87jUkJ6PPGyhEDYJ6vMNf8rNf6Kv6r6UiLnBLF4zaPawZHSWRKBqpRV3wu1V6Rn4PzSq5BFBYrMmp3UQFsv";
-	// Dev wallet public spend key
+	// 
 	static constexpr const char* DEV_FUND_VIEWKEY = "";
-	// Exact number of coins burned in the premine burn, in atomic units
+	// All coins from the premine burn. Did not go to us
 	static constexpr uint64_t PREMINE_BURN_AMOUNT = 1000000000;
-	// Omb donation address
+	// Ryo donation address
 	static constexpr const char* RYO_DONATION_ADDR = "ShaDowSiWnzeiZ8ciSF87jUkJ6PPGyhEDYJ6vMNf8rNf6Kv6r6UiLnBLF4zaPawZHSWRKBqpRV3wu1V6Rn4PzSq5BFBYrMmp3UQFsv";
 };
 

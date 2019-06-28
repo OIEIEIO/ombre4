@@ -1,4 +1,4 @@
-# Ombre Blockchain Utilities
+# Ryo Blockchain Utilities
 
 Copyright (c) 2014-2018, The Monero Project
 
@@ -12,16 +12,16 @@ See also each utility's "--help" option.
 
 ### Export an existing blockchain database
 
-`$ ombre-blockchain-export`
+`$ ryo-blockchain-export`
 
 This loads the existing blockchain and exports it to `$RYO_DATA_DIR/export/blockchain.raw`
 
 ### Import the exported file
 
-`$ ombre-blockchain-import`
+`$ ryo-blockchain-import`
 
 This imports blocks from `$RYO_DATA_DIR/export/blockchain.raw` (exported using the
-`ombre-blockchain-export` tool as described above) into the current database.
+`ryo-blockchain-export` tool as described above) into the current database.
 
 Defaults: `--batch on`, `--batch size 20000`, `--verify on`
 
@@ -30,14 +30,14 @@ Batch size refers to number of blocks and can be adjusted for performance based 
 Verification should only be turned off if importing from a trusted blockchain.
 
 If you encounter an error like "resizing not supported in batch mode", you can just re-run
-the `ombre-blockchain-import` command again, and it will restart from where it left off.
+the `ryo-blockchain-import` command again, and it will restart from where it left off.
 
 ```bash
 ## use default settings to import blockchain.raw into database
-$ ombre-blockchain-import
+$ ryo-blockchain-import
 
 ## fast import with large batch size, database mode "fastest", verification off
-$ ombre-blockchain-import --batch-size 20000 --database lmdb#fastest --verify off
+$ ryo-blockchain-import --batch-size 20000 --database lmdb#fastest --verify off
 
 ```
 
@@ -80,9 +80,9 @@ LMDB flags (more than one may be specified):
 ## Examples:
 
 ```
-$ ombre-blockchain-import --database lmdb#fastest
+$ ryo-blockchain-import --database lmdb#fastest
 
-$ ombre-blockchain-import --database lmdb#nosync
+$ ryo-blockchain-import --database lmdb#nosync
 
-$ ombre-blockchain-import --database lmdb#nosync,nometasync
+$ ryo-blockchain-import --database lmdb#nosync,nometasync
 ```

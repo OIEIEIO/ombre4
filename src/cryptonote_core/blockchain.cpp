@@ -1,36 +1,10 @@
-// Copyright (c) 2019, Ryo Currency Project
+// Copyright (c) 2018, Ryo Currency Project
 // Portions copyright (c) 2014-2018, The Monero Project
 //
 // Portions of this file are available under BSD-3 license. Please see ORIGINAL-LICENSE for details
 // All rights reserved.
 //
-// Authors and copyright holders give permission for following:
-//
-// 1. Redistribution and use in source and binary forms WITHOUT modification.
-//
-// 2. Modification of the source form for your own personal use.
-//
-// As long as the following conditions are met:
-//
-// 3. You must not distribute modified copies of the work to third parties. This includes
-//    posting the work online, or hosting copies of the modified work for download.
-//
-// 4. Any derivative version of this work is also covered by this license, including point 8.
-//
-// 5. Neither the name of the copyright holders nor the names of the authors may be
-//    used to endorse or promote products derived from this software without specific
-//    prior written permission.
-//
-// 6. You agree that this licence is governed by and shall be construed in accordance
-//    with the laws of England and Wales.
-//
-// 7. You agree to submit all disputes arising out of or in connection with this licence
-//    to the exclusive jurisdiction of the Courts of England and Wales.
-//
-// Authors and copyright holders agree that:
-//
-// 8. This licence expires and the work covered by it is released into the
-//    public domain on 1st of February 2020
+// Ryo changes to this code are in public domain. Please note, other licences may apply to the file.
 //
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -335,6 +309,14 @@ bool Blockchain::init(BlockchainDB *db, const network_type nettype, bool offline
 	if(!get_account_address_from_str<MAINNET>(dev_addr, std::string(common_config::DEV_FUND_ADDRESS)))
 	{
 		LOG_ERROR("Failed to parse dev address");
+		return false;
+	}
+
+	m_dev_spend_key = dev_addr.address.m_spend_public_key;
+	crypto::public_key vk;
+	if(!secret_key_to_public_key(m_dev_view_key, vk) || vk != dev_addr.address.m_view_public_key)
+	{
+		LOG_ERROR("Dev private view key failed verification!");
 		return false;
 	}
 
@@ -3146,7 +3128,7 @@ bool Blockchain::check_fee(const transaction &tx, size_t blob_size, uint64_t fee
 			return false;
 		fee_per_kb = get_dynamic_per_kb_fee(base_reward, median);
 
-		LOG_PRINT_L2("Using " << print_money(fee_per_kb) << "/kB fee");
+		LOG_PRINT_L2("Using " << print_money(fee) << "/kB fee");
 
 		//WHO THOUGHT THAT FLOATS IN CONSENSUS CODE ARE A GOOD IDEA?????
 		float kB = (blob_size - CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE) * 1.0f / 1024;

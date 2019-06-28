@@ -4,7 +4,7 @@
 // Portions of this file are available under BSD-3 license. Please see ORIGINAL-LICENSE for details
 // All rights reserved.
 //
-// Ombre changes to this code are in public domain. Please note, other licences may apply to the file.
+// Ryo changes to this code are in public domain. Please note, other licences may apply to the file.
 //
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -32,10 +32,10 @@
  */
 namespace cryptonote
 {
-/*! validate ombre/sumokoin addresses
+/*! validate ryo/sumokoin addresses
    *
    * The validator is backward compatible to sumokoin addresses.
-   * A sumokoin address will be shown as Ombre representation.
+   * A sumokoin address will be shown as RYO representation.
    */
 class address_validator
 {

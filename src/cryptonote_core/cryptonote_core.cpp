@@ -4,7 +4,7 @@
 // Portions of this file are available under BSD-3 license. Please see ORIGINAL-LICENSE for details
 // All rights reserved.
 //
-// Ombre changes to this code are in public domain. Please note, other licences may apply to the file.
+// Ryo changes to this code are in public domain. Please note, other licences may apply to the file.
 //
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -89,7 +89,7 @@ static const command_line::arg_descriptor<uint64_t> arg_show_time_stats = {
 static const command_line::arg_descriptor<size_t> arg_block_sync_size = {
 	"block-sync-size", "How many blocks to sync at once during chain synchronization (0 = adaptive).", 0};
 static const command_line::arg_descriptor<std::string> arg_check_updates = {
-	"check-updates", "Check for new versions of Ombre: [disabled|notify|download|update]", "notify"};
+	"check-updates", "Check for new versions of ryo: [disabled|notify|download|update]", "notify"};
 static const command_line::arg_descriptor<bool> arg_fluffy_blocks = {
 	"fluffy-blocks", "Relay blocks as fluffy blocks (obsolete, now default)", true};
 static const command_line::arg_descriptor<bool> arg_no_fluffy_blocks = {
@@ -1274,7 +1274,7 @@ bool core::on_idle()
 	{
 		std::string main_message;
 		if(m_offline)
-			main_message = "The daemon is running offline and will not attempt to sync to the Ombre network.";
+			main_message = "The daemon is running offline and will not attempt to sync to the Ryo network.";
 		else
 			main_message = "The daemon will start synchronizing with the network. This may take a long time to complete.";
 		MGINFO_YELLOW(ENDL << "**********************************************************************" << ENDL
@@ -1339,7 +1339,7 @@ uint8_t core::get_hard_fork_version(uint64_t height) const
 bool core::check_updates()
 {
 #if 0
-    static const char software[] = "ombre";
+    static const char software[] = "ryo";
 #ifdef BUILD_TAG
     static const char buildtag[] = BOOST_PP_STRINGIZE(BUILD_TAG);
     static const char subdir[] = "cli"; // because it can never be simple
