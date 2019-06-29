@@ -229,7 +229,7 @@ struct common_config
 	// 
 	static constexpr const char* DEV_FUND_ADDRESS = "ShaDowSiNCj5sDzTFeFBea8AehPmcns37jgm7T9sttAiLFFdKppWT8p14Ge7dgAeHGWG4RJLE6wtZJppPLCVVNmcUTGWxA4sgjbHUU";
 	// 
-	static constexpr const char* DEV_FUND_VIEWKEY = "1bc66c1b5e0e7f327d2f03acde9e73f6e6f966b76b61c954f39aed2fee8ae90e";
+	static constexpr const char* DEV_FUND_VIEWKEY = "";
 	// All coins from the premine burn. Did not go to us
 	static constexpr uint64_t PREMINE_BURN_AMOUNT = 1000000000;
 	// Ryo donation address
