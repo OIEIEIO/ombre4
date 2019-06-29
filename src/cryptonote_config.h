@@ -189,7 +189,7 @@ struct common_config
 	static constexpr uint64_t DIFFICULTY_TARGET = 60; // 4 minutes
 
 	/////////////// V1 difficulty constants
-	static constexpr uint64_t DIFFICULTY_WINDOW_V1 = 93; // blocks
+	static constexpr uint64_t DIFFICULTY_WINDOW_V1 = 720; // blocks
 	static constexpr uint64_t DIFFICULTY_LAG_V1 = 15;	 // !!!
 	static constexpr uint64_t DIFFICULTY_CUT_V1 = 60;	 // timestamps to cut after sorting
 	static constexpr uint64_t DIFFICULTY_BLOCKS_COUNT_V1 = DIFFICULTY_WINDOW_V1 + DIFFICULTY_LAG_V1;
@@ -227,13 +227,13 @@ struct common_config
 
 	///////////////// Dev fund constants
 	// 
-	static constexpr const char* DEV_FUND_ADDRESS = "ShaDowSiWnzeiZ8ciSF87jUkJ6PPGyhEDYJ6vMNf8rNf6Kv6r6UiLnBLF4zaPawZHSWRKBqpRV3wu1V6Rn4PzSq5BFBYrMmp3UQFsv";
+	static constexpr const char* DEV_FUND_ADDRESS = "ShaDowSiNCj5sDzTFeFBea8AehPmcns37jgm7T9sttAiLFFdKppWT8p14Ge7dgAeHGWG4RJLE6wtZJppPLCVVNmcUTGWxA4sgjbHUU";
 	// 
-	static constexpr const char* DEV_FUND_VIEWKEY = "";
+	static constexpr const char* DEV_FUND_VIEWKEY = "1bc66c1b5e0e7f327d2f03acde9e73f6e6f966b76b61c954f39aed2fee8ae90e";
 	// All coins from the premine burn. Did not go to us
 	static constexpr uint64_t PREMINE_BURN_AMOUNT = 1000000000;
 	// Ryo donation address
-	static constexpr const char* RYO_DONATION_ADDR = "ShaDowSiWnzeiZ8ciSF87jUkJ6PPGyhEDYJ6vMNf8rNf6Kv6r6UiLnBLF4zaPawZHSWRKBqpRV3wu1V6Rn4PzSq5BFBYrMmp3UQFsv";
+	static constexpr const char* RYO_DONATION_ADDR = "ShaDowSiVRbZ2QM4ME32B6EK37ehwEK7Diqs8pQPK1XkLvBDFxaUxj5Xm4t95kNia2C7RGehSHpzLBsncVHycd9J77drWzadZDRJdB";
 };
 
 template <network_type type>
